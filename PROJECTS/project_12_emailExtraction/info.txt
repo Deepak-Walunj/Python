@@ -1,0 +1,38 @@
+status, messages = mail.search(charset, search_criterion)
+It returns a tuple where the first part (status) indicates whether the operation was successful (OK or NO), and the second part 
+(messages) contains the message IDs that match the search criteria.
+Parameters:
+charset (None or a character set):
+This defines the character set to use when searching. If you're using ASCII, you can pass None (as you did in the example). For other encodings, you can specify the appropriate charset (like "UTF-8").
+Example: None or "UTF-8"
+search_criterion (a string):
+This defines what criteria the server will use to search for emails. Multiple search criteria can be combined with logical operators (e.g., "OR"). Here's a list of common search criteria:
+Common Search Criteria:
+"ALL": Retrieve all messages in the mailbox.
+"ANSWERED": Retrieve messages that have been answered.
+"UNANSWERED": Retrieve messages that have not been answered.
+"DELETED": Retrieve deleted messages (if they are still available).
+"FLAGGED": Retrieve messages marked as flagged (important).
+"UNFLAGGED": Retrieve messages that are not flagged.
+"SEEN": Retrieve messages that have been read.
+"UNSEEN": Retrieve unread messages.
+"DRAFT": Retrieve messages saved as drafts.
+"FROM "sender@example.com": Retrieve messages from a specific sender.
+"SUBJECT "subject": Retrieve messages with a specific subject.
+"BEFORE "date": Retrieve messages sent before a specific date ("01-Jan-2024").
+"SINCE "date": Retrieve messages sent since a specific date ("01-Jan-2024").
+"BODY "text": Retrieve messages that contain the specified text in the body.
+"TO "recipient@example.com": Retrieve messages sent to a specific recipient.
+"OR (criteria1) (criteria2)": Combine two or more search criteria.
+
+status, msg_data = mail.fetch(message_id, message_parts)
+The mail.fetch() function is used to retrieve the contents of a specific email (or emails) from the server using their unique message IDs. 
+When you pass the message ID and specify (RFC822) as the argument, you retrieve the entire raw email content (header, body, attachments, etc.).
+message_parts:
+Specifies which part of the message to fetch. (RFC822) is used to fetch the entire email (headers and body).
+Common parts:
+"BODY[TEXT]": Fetches the body of the email.
+"BODY.PEEK[TEXT]": Similar to "BODY[TEXT]", but does not mark the email as read.
+"BODY[HEADER]": Fetches only the headers of the email.
+"RFC822": Fetches the entire message.
+"FLAGS": Retrieves the message flags (e.g., Seen, Answered).

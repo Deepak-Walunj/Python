@@ -1,0 +1,15 @@
+airport api:aviationstack
+access_key = 12919ccf4267b2aa7bf52b93c649831c
+
+hotel api:booking com/rapidapi
+BOOKING_API_HOST = "booking-com15.p.rapidapi.com"
+
+geological api:geocode.maps.co
+GEOCODE_API_KEY = "66c7757c28938583789454xng952904"
+
+
+flight booking api:skyScanner/rapidapi
+
+blablacar bus api key:-KbqYVZexCeGiO9R4bAUSjQ
+
+transitland api kye:-H7yXGinjuKw6SykxsKyLPsKN6HEYkqIX
